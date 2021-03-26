@@ -10,6 +10,6 @@
     fclose($fp);
   ?>
   <h2>Le professeur a bien été enregistré</h2>
-  <a href="inscriptionEleves.php">Revenir à la page précédente</a>
+  <a href="inscriptionProfesseurs.php">Revenir à la page précédente</a>
 </body>
 </html>
