@@ -13,11 +13,9 @@
     if (($handle = fopen("infoEleves.csv", "r")) !== FALSE) {
       while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $num = count($data);
-        if($row > 1){
-          for ($c=0; $c < $num; $c++) {
-            $array = explode(";", $data[$c]);
-            $tabEleves += [$array[5] => $array[6]];
-          }
+        for ($c=0; $c < $num; $c++) {
+          $array = explode(";", $data[$c]);
+          $tabEleves += [$array[5] => $array[6]];
         }
         $row++;
       }
@@ -112,7 +110,7 @@
       while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $num = count($data);
         for ($c=0; $c < $num; $c++) {
-          if($row == $ligne+2){
+          if($row == $ligne+1){
             $array = explode(";", $data[$c]);
             $_SESSION["statut"]= "élève";
             $_SESSION["nom"]= $array[0];
