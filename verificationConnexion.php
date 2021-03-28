@@ -83,13 +83,13 @@
           if($row == $ligne+2){
             $array = explode(";", $data[$c]);
             $_SESSION["statut"]= "élève";
-            $_SESSION["nom"]= $data[0];
-            $_SESSION["prenom"]= $data[1];
-            $_SESSION["date"]= $data[2];
-            $_SESSION["maison"]= $data[3];
-            $_SESSION["points"]= $data[4];
-            $_SESSION["login"]= $data[5];
-            $_SESSION["mdp"]= $data[6];
+            $_SESSION["nom"]= $array[0];
+            $_SESSION["prenom"]= $array[1];
+            $_SESSION["date"]= $array[2];
+            $_SESSION["maison"]= $array[3];
+            $_SESSION["points"]= $array[4];
+            $_SESSION["login"]= $array[5];
+            $_SESSION["mdp"]= $array[6];
           }
         }
         $row++;
@@ -109,11 +109,11 @@
           if($row == $ligne+1){
             $array = explode(";", $data[$c]);
             $_SESSION["statut"]= "professeur";
-            $_SESSION["nom"]= $data[0];
-            $_SESSION["prenom"]= $data[1];
-            $_SESSION["matiere"]= $data[2];
-            $_SESSION["login"]= $data[3];
-            $_SESSION["mdp"]= $data[4];
+            $_SESSION["nom"]= $array[0];
+            $_SESSION["prenom"]= $array[1];
+            $_SESSION["matiere"]= $array[2];
+            $_SESSION["login"]= $array[3];
+            $_SESSION["mdp"]= $array[4];
           }
         }
         $row++;
