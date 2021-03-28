@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exercice 3</title>
+    <title>Accueil</title>
 </head>
 <body>
-
-
-  <?php
-
-  ?>
+    <?php
+      echo "Bienvenue ".$_SESSION["nom"];
+    ?>
 </body>
 </html>

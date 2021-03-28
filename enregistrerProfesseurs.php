@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exercice 2</title>
+    <title>Enregistrer professeurs</title>
 </head>
 <body>
   <?php
+    //on ouvre le csv et on rentre les informations à l'intérieur
     $fp = fopen('./infoProfesseurs.csv', 'a+');
     fputcsv($fp, $_POST,";");
     fclose($fp);

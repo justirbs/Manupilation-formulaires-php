@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exercice 3</title>
+    <title>Connexion</title>
 </head>
 <body>
   <h2>Veuillez vous connecter :</h2>
@@ -12,6 +12,7 @@
   </form>
 
   <?php
+    //s'affiche si l'utilistaeur s'est trompé lors de la saisie
     if(!empty($_GET)){
       echo("<p style='color:red'>Il y a une erreur dans l'identifiant et/ou dans le mot de passe</p>");
     }

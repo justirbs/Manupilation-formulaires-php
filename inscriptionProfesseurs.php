@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Exercice 2</title>
+    <title>Inscription professeurs</title>
 </head>
 <body>
   <form id="formulaire" method="post" action="enregistrerProfesseurs.php">
