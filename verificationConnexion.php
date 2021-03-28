@@ -5,30 +5,81 @@
 </head>
 <body>
   <?php
-    if (($handle = fopen("infoEleves.csv", "r"))) {
-    while (($data = fgetcsv($handle, 1000, ","))) {
-        echo $data[0]."</br>";
-        echo $data[1]."</br>";
-        echo $data[2]."</br>";
+  function recupInfoEleves(){
+    $row = 1;
+    $tabEleves = array();
+    if (($handle = fopen("infoEleves.csv", "r")) !== FALSE) {
+      while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $num = count($data);
+        if($row > 1){
+          for ($c=0; $c < $num; $c++) {
+            $array = explode(";", $data[$c]);
+            $tabEleves += [$array[5] => $array[6]];
+          }
+        }
+        $row++;
+      }
+      fclose($handle);
     }
-    $array1 = explode($data[0], ";");
-    $array2 = explode($data[1], ";");
-    $array3 = explode($data[2], ";");
-    echo("<br/><br/>Tableau 1 : ");
-    foreach ($array1 as $value) {
-      echo("<br/>".$value);
+    return($tabEleves);
+  }
+
+  function recupInfoProfs(){
+    $row = 1;
+    $tabProfs = array();
+    if (($handle = fopen("infoProfesseurs.csv", "r")) !== FALSE) {
+      while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $num = count($data);
+        for ($c=0; $c < $num; $c++) {
+          $array = explode(";", $data[$c]);
+          $tabProfs += [$array[3] => $array[4]];
+        }
+        $row++;
+      }
+      fclose($handle);
     }
-    echo("<br/><br/>Tableau 2 : ");
-    foreach ($array2 as $value) {
-      echo("<br/>".$value);
-    }
-    echo("<br/><br/>Tableau 3 : ");
-    foreach ($array3 as $value) {
-      echo("<br/>".$value);
+    return($tabProfs);
+  }
+
+
+  function verification(){
+    $tabEleves = recupInfoEleves();
+    $tabProfs = recupInfoProfs();
+    $estValide = 0;
+
+    foreach ($tabEleves as $login => $mdp) {
+      if($_POST["identifiant"] == $login  &&  $_POST["mdp"] == $mdp) {
+        $estValide = 1;
+      }
     }
 
-    fclose($handle);
+    foreach ($tabProfs as $login => $mdp) {
+      if($_POST["identifiant"] == $login  &&  $_POST["mdp"] == $mdp) {
+        $estValide = 2;
+      }
     }
+    return($estValide);
+  }
+
+
+  $estValide = verification();
+  switch ($estValide) {
+    case '0':
+      header('Location: connexion.php?erreur=erreur');
+      exit();
+      break;
+    case '1':
+      header('Location: accueil.php');
+      exit();
+      break;
+    case '2':
+      header('Location: accueil.php');
+      exit();
+    default:
+      echo("erreur");
+      break;
+  }
+
 
   ?>
 </body>

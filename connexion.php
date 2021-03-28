@@ -10,5 +10,11 @@
     <p>Mot de passe : <input type="password" id="mdp" name="mdp"/></p>
   	<p><input type="submit" value="Valider" id="boutonValider" class="btn"/></p>
   </form>
+
+  <?php
+    if(!empty($_GET)){
+      echo("<p style='color:red'>Il y a une erreur dans l'identifiant et/ou dans le mot de passe</p>");
+    }
+  ?>
 </body>
 </html>
