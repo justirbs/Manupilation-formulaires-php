@@ -87,9 +87,10 @@ session_start();
             afficherTabProfs();
           }
         }
-        echo("<form method='POST' action='connexion.php'><input type='submit' name='OUT' value='déconnexion'/></form>");
+        echo("<form method='POST' action='index.php'><input type='submit' name='OUT' value='déconnexion'/></form>");
       } else {
         echo("Vous ne vous êtes pas connecté ...");
+        echo("<br/><a href='index.php'>Conectez-vous<a>");
       }
     ?>
 

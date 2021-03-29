@@ -192,7 +192,7 @@
 
   switch ($estValide) {
     case '0':
-      header('Location: connexion.php?erreur=erreur');
+      header('Location: index.php?erreur=erreur');
       exit();
       break;
     case '1':

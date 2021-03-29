@@ -11,6 +11,6 @@
     fclose($fp);
   ?>
   <h2>Le professeur a bien été enregistré</h2>
-  <a href="connexion.php">Revenir à la page précédente</a>
+  <a href="index.php">Revenir à la page précédente</a>
 </body>
 </html>
