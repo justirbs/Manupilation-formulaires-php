@@ -89,7 +89,7 @@ session_start();
         }
         echo("<form method='POST' action='connexion.php'><input type='submit' name='OUT' value='déconnexion'/></form>");
       } else {
-        echo("Vous ne vous êtes pas connecter ...");
+        echo("Vous ne vous êtes pas connecté ...");
       }
     ?>
 
