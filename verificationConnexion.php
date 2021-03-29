@@ -196,7 +196,7 @@
       exit();
       break;
     case '1':
-      header('Location: accueil.php');
+      header('Location: accueil.php?connexion=ok');
       exit();
       break;
       echo("erreur");

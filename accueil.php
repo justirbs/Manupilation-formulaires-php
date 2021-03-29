@@ -74,24 +74,26 @@ session_start();
         echo("</table><br/>");
       }
 
-
-      echo("<h2>Profil ".$_SESSION["statut"]."</h2>");
-      echo("<h4>Bienvenue ".$_SESSION["prenom"]." ".$_SESSION["nom"]."</h4>");
-      if($_SESSION["statut"] == "élève"){
-        echo("<p>Vous êtes né le : ".$_SESSION["date"]."</p><p>Vous êtes dans la maison ".$_SESSION["maison"]."</p><p>Vous avez actuellement ".$_SESSION["points"]." points</p><p>Votre pseudo est : ".$_SESSION["login"]."</p>");
-      } else {
-        if($_SESSION["statut"] == "professeur"){
-          echo("<p>Vous enseignez la matières ".$_SESSION["matiere"]."</p><p>Votre pseudo est : ".$_SESSION["login"]."</p>");
+      if($_GET["connexion"] == "ok") {
+        echo("<h2>Profil ".$_SESSION["statut"]."</h2>");
+        echo("<h4>Bienvenue ".$_SESSION["prenom"]." ".$_SESSION["nom"]."</h4>");
+        if($_SESSION["statut"] == "élève"){
+          echo("<p>Vous êtes né le : ".$_SESSION["date"]."</p><p>Vous êtes dans la maison ".$_SESSION["maison"]."</p><p>Vous avez actuellement ".$_SESSION["points"]." points</p><p>Votre pseudo est : ".$_SESSION["login"]."</p>");
         } else {
-          afficherTabEleves();
-          afficherTabProfs();
+          if($_SESSION["statut"] == "professeur"){
+            echo("<p>Vous enseignez la matières ".$_SESSION["matiere"]."</p><p>Votre pseudo est : ".$_SESSION["login"]."</p>");
+          } else {
+            afficherTabEleves();
+            afficherTabProfs();
+          }
         }
+        echo("<form method='POST' action='connexion.php'><input type='submit' name='OUT' value='déconnexion'/></form>");
+      } else {
+        echo("Vous ne vous êtes pas connecter ...");
       }
     ?>
 
-    <form method="POST" action="connexion.php">
-      <input type="submit" name="OUT" value="déconnexion"/>
-    </form>
+
 
 </body>
 </html>
